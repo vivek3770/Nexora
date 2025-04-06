@@ -269,7 +269,7 @@ st.caption("InnovateAI Pro | Powered by Streamlit 🚀")
 
 # Sidebar Navigation
 with st.sidebar:
-    st.image("image1.png", caption="InnovateAI Pro", use_column_width=True)
+    st.image("image1.png", caption="InnovateAI Pro", use_container_width=True)
     selected = st.radio(
         "Navigate:",
         ["Home", "Text Input", "Image Analysis", "Data Insights", "Settings"],
@@ -286,7 +286,7 @@ if selected == "Home":
     - **Image Analysis**: Extract insights and concepts from images.
     - **Data Insights**: Analyze data trends and patterns.
     """)
-    st.image("image.png", use_column_width=True)
+    st.image("image.png", use_container_width=True)
 
 # Text Input Section
 if selected == "Text Input":
@@ -305,7 +305,7 @@ if selected == "Image Analysis":
     img_file = st.file_uploader("Upload an image:", type=["jpg", "jpeg", "png"])
     if img_file:
         image = Image.open(img_file)
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.image(image, caption="Uploaded Image", use_container_width=True)
         if st.button("Analyze Image"):
             st.spinner("Analyzing...")
             st.success("Analysis completed successfully!")
