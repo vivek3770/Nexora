@@ -1,6 +1,6 @@
 # 🚀 AI Innovation Generator
 
-The **AI Innovation Generator** is an interactive application designed to help users discover innovative solutions for real-world problems using AI-powered technologies.
+The **AI Innovation Generator** is an interactive application designed to help users discover innovative solutions for real-world problems using AI-powered technologies. Built with Streamlit, Hugging Face's Transformers library, and OpenAI's CLIP model, the app can generate text-based solutions, analyze images, process CSV data for insights, and even provide random concept ideas—all tailored to the selected context..
 
 Built with **Streamlit**, **Hugging Face Transformers**, and **OpenAI's CLIP model**, this app enables:
 
@@ -9,6 +9,19 @@ Built with **Streamlit**, **Hugging Face Transformers**, and **OpenAI's CLIP mod
 - 📊 CSV data analysis  
 
 ---
+**Installation**
+Clone the repository:
+bash
+git clone https://github.com/your-repo-name/AI-Innovation-Generator.git
+cd AI-Innovation-Generator
+
+Install dependencies:
+bash
+pip install -r requirements.txt
+
+Run the application:
+bash
+streamlit run app.py
 
 ## ✨ Features
 
@@ -56,7 +69,7 @@ Built with **Streamlit**, **Hugging Face Transformers**, and **OpenAI's CLIP mod
 2. **Navigate to the directory:**
 
     ```bash
-    cd ai-innovation-generator
+    cd organizin_ai1.py
     ```
 
 3. **Run the Streamlit app:**
