@@ -63,25 +63,25 @@ streamlit run app.py
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/ai-innovation-generator.git
+    git clone https://github.com/vivek3770/Nexora.git
     ```
 
 2. **Navigate to the directory:**
 
     ```bash
-    cd organizin_ai1.py
+    cd final.py
     ```
 
 3. **Run the Streamlit app:**
 
     ```bash
-    streamlit run app.py
+    streamlit run final.py
     ```
 
 ---
 
 ## 📌 Note
-
+_ Execute the final.py to run the program.
 - Heavy models may take time to load, especially image-based models.  
 - For faster execution, consider using GPU environments or platforms like **Google Colab** or **Hugging Face Spaces**.
   
