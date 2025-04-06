@@ -57,42 +57,43 @@ text_generator, clip_model, clip_processor = load_models()
 
 def generate_innovation(prompt, context="general"):
     """
-    Generate a unique, relevant, and practical solution without repeating or echoing the prompt.
-    Ensures solutions are based on real-world applications and innovations.
+    Generate a unique, relevant, and real-world solution based on the user's input.
+    Enhanced to avoid repetition, randomness, and improve relevance.
     """
     try:
-        # Refining the structured prompt
+        # Refined prompt for GPT-2
         structured_prompt = (
             f"Context: {context.capitalize()}.\n"
-            "Based on the problem described below, provide a unique, detailed, and practical solution.\n"
+            "You are an expert in innovation and problem-solving.\n"
+            "Based on the problem described below, provide a relevant, detailed, and actionable solution.\n"
             f"Problem: {prompt}\n"
-            "Do not restate the problem. Focus exclusively on presenting the solution in a clear and actionable format."
+            "Focus on real-world applications and benefits. Do not restate the problem; provide only the solution."
         )
 
-        # Generating output using the model
+        # Generating output from the model
         outputs = text_generator(
             structured_prompt,
             max_length=150,
             num_return_sequences=1,
-            temperature=0.8,  # Encourages uniqueness
-            top_p=0.9  # Balances creativity and practicality
+            temperature=0.7,  # Lower randomness for improved relevance
+            top_p=0.95  # Prioritize high-probability predictions
         )
 
-        # Extracting and refining the solution
+        # Extract the actual solution and clean up redundant parts
         generated_text = outputs[0]["generated_text"].strip()
 
-        # Removing the problem description and redundant phrases
+        # Processing to remove echoes of the prompt or incomplete phrases
         solution_start = generated_text.lower().find("solution:")
         if solution_start != -1:
             solution = generated_text[solution_start + len("solution:"):].strip()
         else:
             solution = generated_text.strip()
 
-        # Ensuring the prompt is not echoed in the solution
+        # Ensure any accidental repetition of the prompt is removed
         solution = solution.replace(prompt, "").strip()
 
-        # Returning clean and concise output
-        return solution if solution else "No solution could be generated."
+        # Clean and validate the output
+        return solution if solution and len(solution) > 30 else "The model generated an incomplete or irrelevant solution. Please try again."
     except Exception as e:
         st.error(f"Error generating innovation idea: {traceback.format_exc()}")
         return None
